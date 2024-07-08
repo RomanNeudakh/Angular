@@ -21,6 +21,7 @@
         "airbnb-typescript/base"
       ],
       "rules": {
+        "@typescript-eslint/no-explicit-any": 2,
         "@angular-eslint/directive-selector": [
           "error",
           {
