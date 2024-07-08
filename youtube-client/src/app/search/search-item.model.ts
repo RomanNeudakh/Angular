@@ -41,4 +41,3 @@ interface Statistics {
   favoriteCount: string;
   commentCount: string;
 }
-
