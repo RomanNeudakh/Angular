@@ -1,0 +1,57 @@
+.card {
+    width: 320px;
+    height: 360px;
+    background: var(--accent-color);
+    box-sizing: border-box;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  button {
+    outline: none;
+    border: none;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease-in-out, background 0.4s ease-in-out;
+  }
+  button:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 3px 5px rgba(0, 0, 0, 0.08);
+    background: var(--accent-color);
+  }
+  .mat-card-image {
+    width: 100%;
+    height: auto;
+  }
+  .stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  .stats span {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+  .stats mat-icon {
+    margin-right: 5px;
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    margin-top: auto;
+  }
+  h3 {
+    text-align: center;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

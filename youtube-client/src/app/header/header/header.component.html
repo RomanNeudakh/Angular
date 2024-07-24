@@ -1,1 +1,18 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <div class="left-section">
+    <button mat-icon-button>
+      <mat-icon fontIcon="play_circle"></mat-icon>
+    </button>
+    <app-searchbar></app-searchbar>  
+    <button mat-icon-button>
+      <mat-icon fontIcon="tune"></mat-icon>
+    </button>
+  </div>
+  <div class="right-section">
+    <span [ngClass] = "{bold: true, italic: true}" >Your Name</span>
+    <button mat-icon-button>
+      <mat-icon fontIcon="account_circle"></mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+  

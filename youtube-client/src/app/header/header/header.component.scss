@@ -1,0 +1,30 @@
+.mat-toolbar {
+  display: grid;
+  grid-template-columns: 360px 1fr auto;
+  align-items: center;
+  background: var(--primary-color);
+  padding: 10px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+button.mat-icon-button {
+  margin-left: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}

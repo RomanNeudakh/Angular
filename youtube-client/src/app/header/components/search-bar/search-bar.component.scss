@@ -1,0 +1,27 @@
+.search-bar-container {
+    position: relative;
+    padding: 0px 20px;
+    width: 280px;
+    background: #eaf1fb;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    > input {
+        width: 200px;
+        font-size: 1.2rem;
+        outline: none;
+        border: none;
+        background: inherit;
+    }
+    &.opened {
+        background: white;
+        border-radius: 12px 12px 0 0;
+    }
+    .close-button {
+        position: absolute;
+        right: 14px;
+    }
+}
+:host {
+    display: block;
+}

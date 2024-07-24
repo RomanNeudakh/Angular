@@ -1,1 +1,5 @@
-<p>search-results works!</p>
+<div class="search-result-container" [class.mat-elevation-z8]="true">
+  <div class="card-container">
+    <app-search-item *ngFor="let tile of listItems()" [item]="tile"></app-search-item>
+  </div>
+</div>
