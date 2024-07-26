@@ -2,48 +2,55 @@ import { effect, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import Item from '../search/search-item.model';
+import { SearchResponse } from '../search/search-response.model';
+
 @Injectable({
   providedIn: 'root',
 })
-export class SearchBarService {
+export default class SearchBarService {
   private url = 'https://raw.githubusercontent.com/RomanNeudakh/rs_school_stage1/main/response.json';
-  private fullListItems: Item[] = []
+
+  private fullListItems: Item[] = [];
+
   constructor(private http: HttpClient) {
     this.fetchJsonFile().subscribe({
-      next: (data) => {
+      next: (data: SearchResponse) => {
         this.listItems.set(data.items as Item[]);
-        this.fullListItems = data.items; 
-      },
-      error: (error) => {
-        console.error('There has been a problem with your fetch operation:', error);
+        this.fullListItems = data.items;
       },
     });
   }
-  keyWord = signal('')
-  sortKey = signal('Date')
-  sortOrder = signal('asc')
-  listItems = signal<Item[]>([])
+
+  keyWord = signal('');
+
+  sortKey = signal('Date');
+
+  sortOrder = signal('asc');
+
+  listItems = signal<Item[]>([]);
+
   overlayOpen = signal(false);
-  settingsOverlayOpen = signal(false)
-  recentSearches = this.isBrowser()
+
+  settingsOverlayOpen = signal(false);
+
+  recentSearches = SearchBarService.isBrowser()
     ? signal<string[]>(JSON.parse(window.localStorage.getItem('recentSearches') ?? '[]'))
     : signal<string[]>(['testSearch']);
 
   searchStr = signal('');
+
   search(searchedStr: string) {
-    console.log('search')
     this.searchStr.set(searchedStr);
     this.overlayOpen.set(false);
     this.addStrToRecentSearches(searchedStr);
-    this.listItems.set(this.fullListItems.filter((item) => 
-      item.snippet.title
+    this.listItems.set(this.fullListItems.filter((item) => item.snippet.title
       .toLocaleLowerCase()
-      .includes(searchedStr.toLowerCase())))
+      .includes(searchedStr.toLowerCase())));
     // search functionallity
   }
 
-  fetchJsonFile(): Observable<any> {
-    return this.http.get(this.url);
+  fetchJsonFile(): Observable<SearchResponse> {
+    return this.http.get<SearchResponse>(this.url);
   }
 
   addStrToRecentSearches(searchedStr: string) {
@@ -60,12 +67,12 @@ export class SearchBarService {
   }
 
   seveLocalStorageData = effect(() => {
-    if (this.isBrowser()) {
+    if (SearchBarService.isBrowser()) {
       window.localStorage.setItem('recentSearches', JSON.stringify(this.recentSearches()));
     }
   });
 
-  isBrowser(): boolean {
+  static isBrowser(): boolean {
     return typeof window !== 'undefined';
   }
 

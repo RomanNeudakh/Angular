@@ -1,25 +1,26 @@
+/* eslint-disable class-methods-use-this */
 import { Pipe, PipeTransform } from '@angular/core';
 import Item from '../search/search-item.model';
 
 @Pipe({
   name: 'sortPipe',
-  standalone: true
+  standalone: true,
 })
-export class SortPipe implements PipeTransform {
+export default class SortPipe implements PipeTransform {
   transform(items: Item[], sortKey: string, sortOrder: string, keyWord: string): Item[] {
     if (!items) return [];
-    let filteredItems = this.filterItems(items, keyWord);
+    const filteredItems = this.filterItems(items, keyWord);
     return this.sortItems(filteredItems, sortKey, sortOrder);
   }
-  private filterItems(items: Item[], keyWord: string): Item[] {
+
+  filterItems(items: Item[], keyWord: string): Item[] {
     if (!keyWord) return items;
-    keyWord = keyWord.toLowerCase();
-    return items.filter(item =>
-      item.snippet.title.toLowerCase().includes(keyWord) ||
-      item.snippet.description.toLowerCase().includes(keyWord)
-    );
+    const keyWordLowerCase = keyWord.toLowerCase();
+    return items.filter((item) => item.snippet.title.toLowerCase().includes(keyWordLowerCase)
+      || item.snippet.description.toLowerCase().includes(keyWordLowerCase));
   }
-  private sortItems(items: Item[], sortKey: string, sortOrder: string): Item[] {
+
+  sortItems(items: Item[], sortKey: string, sortOrder: string): Item[] {
     if (!sortKey) return items;
     if (sortKey === 'Date') {
       return items.sort((a, b) => {
@@ -35,7 +36,6 @@ export class SortPipe implements PipeTransform {
         return sortOrder === 'asc' ? +viewsA - +viewsB : +viewsB - +viewsA;
       });
     }
-
     return items;
   }
 }

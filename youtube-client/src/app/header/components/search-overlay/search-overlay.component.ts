@@ -3,7 +3,7 @@ import { MatDivider } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
-import { SearchBarService } from '../../../services/search-bar.service';
+import SearchBarService from '../../../services/search-bar.service';
 
 @Component({
   selector: 'app-search-overlay',
@@ -12,9 +12,11 @@ import { SearchBarService } from '../../../services/search-bar.service';
   templateUrl: './search-overlay.component.html',
   styleUrl: './search-overlay.component.scss',
 })
-export class SearchOverlayComponent {
+export default class SearchOverlayComponent {
   searchBarService = inject(SearchBarService);
+
   recentSearches = computed(() => this.searchBarService.recentSearches().slice(0, 5));
+
   searchAction(searchStrFromRecentSearches: string) {
     this.searchBarService.search(searchStrFromRecentSearches);
   }

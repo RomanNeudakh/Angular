@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import Item from '../search-item.model';
+
 @Component({
   selector: 'app-search-item',
   standalone: true,

@@ -6,11 +6,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import SearchItemComponent from '../../search/search-item/search-item.component';
-import { SearchbarComponent } from '../components/search-bar/search-bar.component';
-import { SettingsOverlayComponent } from '../components/settings-overlay/settings-overlay.component';
-import { SearchBarService } from '../../services/search-bar.service';
 import { OverlayModule } from '@angular/cdk/overlay';
+import SearchItemComponent from '../../search/search-item/search-item.component';
+import SearchbarComponent from '../components/search-bar/search-bar.component';
+import SettingsOverlayComponent from '../components/settings-overlay/settings-overlay.component';
+import SearchBarService from '../../services/search-bar.service';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -26,13 +27,14 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatToolbar,
     SearchbarComponent,
     SettingsOverlayComponent,
-    OverlayModule
+    OverlayModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 class HeaderComponent {
   searchBarService = inject(SearchBarService);
+
   settingsOverlayOpen = this.searchBarService.settingsOverlayOpen;
 }
 export default HeaderComponent;
