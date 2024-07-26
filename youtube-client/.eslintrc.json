@@ -36,7 +36,8 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@typescript-eslint/no-explicit-any": "error"
       }
     },
     {
@@ -49,5 +50,8 @@
       ],
       "rules": {}
     }
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error"
+  }
 }
