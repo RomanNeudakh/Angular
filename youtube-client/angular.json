@@ -18,6 +18,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/youtube-client",
+            "baseHref": "/romanneudakh-ANGULAR2024Q3/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -111,6 +112,9 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

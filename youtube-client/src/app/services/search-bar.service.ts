@@ -7,27 +7,38 @@ import Item from '../search/search-item.model';
 })
 export class SearchBarService {
   private url = 'https://raw.githubusercontent.com/RomanNeudakh/rs_school_stage1/main/response.json';
+  private fullListItems: Item[] = []
   constructor(private http: HttpClient) {
     this.fetchJsonFile().subscribe({
       next: (data) => {
-        this.listItems.set(data.items as Item[]); 
+        this.listItems.set(data.items as Item[]);
+        this.fullListItems = data.items; 
       },
       error: (error) => {
         console.error('There has been a problem with your fetch operation:', error);
       },
     });
   }
+  keyWord = signal('')
+  sortKey = signal('Date')
+  sortOrder = signal('asc')
   listItems = signal<Item[]>([])
   overlayOpen = signal(false);
+  settingsOverlayOpen = signal(false)
   recentSearches = this.isBrowser()
     ? signal<string[]>(JSON.parse(window.localStorage.getItem('recentSearches') ?? '[]'))
     : signal<string[]>(['testSearch']);
 
   searchStr = signal('');
   search(searchedStr: string) {
+    console.log('search')
     this.searchStr.set(searchedStr);
     this.overlayOpen.set(false);
     this.addStrToRecentSearches(searchedStr);
+    this.listItems.set(this.fullListItems.filter((item) => 
+      item.snippet.title
+      .toLocaleLowerCase()
+      .includes(searchedStr.toLowerCase())))
     // search functionallity
   }
 

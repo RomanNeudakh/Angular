@@ -1,10 +1,17 @@
-<mat-toolbar color="primary">
+<mat-toolbar 
+  color="primary"
+  cdkOverlayOrigin 
+  #overlayPosition="cdkOverlayOrigin"
+>
   <div class="left-section">
     <button mat-icon-button>
       <mat-icon fontIcon="play_circle"></mat-icon>
     </button>
     <app-searchbar></app-searchbar>  
-    <button mat-icon-button>
+    <button
+      (click)="settingsOverlayOpen.set(true)"
+      mat-icon-button
+    >
       <mat-icon fontIcon="tune"></mat-icon>
     </button>
   </div>
@@ -15,4 +22,13 @@
     </button>
   </div>
 </mat-toolbar>
-  
+<ng-template 
+  cdkConnectedOverlay 
+  [cdkConnectedOverlayOrigin]="overlayPosition" 
+  [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'" 
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayOpen]="settingsOverlayOpen()"
+  (backdropClick)="settingsOverlayOpen.set(false)"
+>
+<app-settings-overlay></app-settings-overlay>
+</ng-template>

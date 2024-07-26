@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatToolbarModule, MatToolbar } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,7 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import SearchItemComponent from '../../search/search-item/search-item.component';
 import { SearchbarComponent } from '../components/search-bar/search-bar.component';
-
+import { SettingsOverlayComponent } from '../components/settings-overlay/settings-overlay.component';
+import { SearchBarService } from '../../services/search-bar.service';
+import { OverlayModule } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -23,11 +25,14 @@ import { SearchbarComponent } from '../components/search-bar/search-bar.componen
     FormsModule,
     MatToolbar,
     SearchbarComponent,
+    SettingsOverlayComponent,
+    OverlayModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 class HeaderComponent {
-
+  searchBarService = inject(SearchBarService);
+  settingsOverlayOpen = this.searchBarService.settingsOverlayOpen;
 }
 export default HeaderComponent;

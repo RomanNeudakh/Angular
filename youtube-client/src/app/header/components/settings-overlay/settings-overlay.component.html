@@ -1,0 +1,24 @@
+<div class="overlay-container">
+  <mat-form-field>
+      <mat-label>Sorting by Date: {{sortOrder()}}
+        <ng-container *ngIf="sortKey() === 'Date'"> <span class="checkmark">&#10004;</span></ng-container>
+      </mat-label>
+      <mat-select (selectionChange)="sortOrder.set($event.value); sortKey.set('Date')">
+        <mat-option value="asc">asc</mat-option>
+        <mat-option value="desc">desc</mat-option>
+      </mat-select>
+    </mat-form-field>
+  <mat-form-field>
+      <mat-label>Sorting by Views: {{sortOrder()}}
+        <ng-container *ngIf="sortKey() === 'Views'"><span class="checkmark">&#10004;</span></ng-container>
+      </mat-label>
+      <mat-select (selectionChange)="sortOrder.set($event.value); sortKey.set('Views')">
+        <mat-option value="asc">asc</mat-option>
+        <mat-option value="desc">desc</mat-option>
+      </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Filtering by key words</mat-label>
+    <input [value]="keyWord()" (input)="onKeyWordInput($event)" matInput placeholder="Type word or sentence">
+  </mat-form-field>
+</div>

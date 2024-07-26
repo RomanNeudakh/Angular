@@ -5,7 +5,7 @@
     [ngClass]="{'opened mat-elevation-z8': overlayOpen()}"
 >
     <button 
-        (click)="search(input.value)"
+        (click)="search(input.value ? input.value : ' ')"
         mat-icon-button
     >
         <mat-icon fontIcon="search"></mat-icon>
@@ -16,8 +16,9 @@
         type="text" 
         placeholder="Search" 
         (click)="overlayOpenFunction()"
-        (keydown.ENTER)="search(input.value)"
+        (keydown.ENTER)="search(input.value ? input.value : ' ')"
     />
+    
     @if(searchStr()) {
         <button mat-icon-button class="close-button" (click)="clearSearchField()">
             <mat-icon >close</mat-icon>
