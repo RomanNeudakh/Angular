@@ -4,22 +4,19 @@
   #overlayPosition="cdkOverlayOrigin"
 >
   <div class="left-section">
-    <button mat-icon-button>
-      <mat-icon fontIcon="play_circle"></mat-icon>
-    </button>
+    <app-custom-button [matIconButton]="true" fontIcon="play_circle" >
+    </app-custom-button>
     <app-searchbar></app-searchbar>  
-    <button
-      (click)="settingsOverlayOpen.set(true)"
-      mat-icon-button
-    >
-      <mat-icon fontIcon="tune"></mat-icon>
-    </button>
   </div>
+  <app-custom-button 
+    [matIconButton]="true" 
+    fontIcon="tune" 
+    (buttonClick)="settingsOverlayOpen.set(true)"
+  >
+  </app-custom-button>
   <div class="right-section">
     <span [ngClass] = "{bold: true, italic: true}" >Your Name</span>
-    <button mat-icon-button>
-      <mat-icon fontIcon="account_circle"></mat-icon>
-    </button>
+    <app-custom-button fontIcon="account_circle"></app-custom-button>
   </div>
 </mat-toolbar>
 <ng-template 

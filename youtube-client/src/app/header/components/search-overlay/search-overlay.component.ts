@@ -4,11 +4,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import SearchBarService from '../../../services/search-bar.service';
+import CustomButtonComponent from '../../../core/components/custom-button/custom-button.component';
 
 @Component({
   selector: 'app-search-overlay',
   standalone: true,
-  imports: [MatDivider, MatListModule, MatIcon, MatIconButton],
+  imports: [MatDivider, MatListModule, MatIcon, MatIconButton, CustomButtonComponent],
   templateUrl: './search-overlay.component.html',
   styleUrl: './search-overlay.component.scss',
 })

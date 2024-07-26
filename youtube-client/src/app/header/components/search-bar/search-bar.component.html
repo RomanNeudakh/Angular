@@ -4,12 +4,12 @@
     #overlayPosition="cdkOverlayOrigin"
     [ngClass]="{'opened mat-elevation-z8': overlayOpen()}"
 >
-    <button 
-        (click)="search(input.value ? input.value : ' ')"
-        mat-icon-button
+    <app-custom-button 
+        [matIconButton]="true" 
+        fontIcon="search" 
+        (buttonClick)="search(input.value ? input.value : ' ')"
     >
-        <mat-icon fontIcon="search"></mat-icon>
-    </button>
+    </app-custom-button>
     <input 
         #input
         [value]="searchStr()"
@@ -20,9 +20,12 @@
     />
     
     @if(searchStr()) {
-        <button mat-icon-button class="close-button" (click)="clearSearchField()">
-            <mat-icon >close</mat-icon>
-        </button>
+        <app-custom-button class="close-button"
+            [matIconButton]="true" 
+            fontIcon="close" 
+            (buttonClick)="clearSearchField()"
+        >
+        </app-custom-button>
     }
 </div>
 <ng-template 

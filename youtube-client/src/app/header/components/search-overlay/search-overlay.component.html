@@ -5,13 +5,13 @@
                 <mat-list-item (click)="searchAction(search)">
                     <mat-icon matListItemIcon>history</mat-icon>
                     <h3 matListItemTitle>{{search}}</h3>
-                    <button 
-                        matListItemMeta 
-                        mat-icon-button
-                        (click)="deleteRecentSearch($event, search)"
+                    <app-custom-button 
+                        [matListItemMeta]="true"
+                        [matIconButton]="true" 
+                        fontIcon="close" 
+                        (buttonClick)="deleteRecentSearch($event, search)"
                     >
-                        <mat-icon>close</mat-icon>
-                    </button>
+                    </app-custom-button>
                 </mat-list-item>
             }
         </mat-action-list>
