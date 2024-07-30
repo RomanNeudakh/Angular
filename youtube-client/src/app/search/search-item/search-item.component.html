@@ -1,21 +1,21 @@
-<mat-card class="card">
-  <img mat-card-image [src]="item.snippet.thumbnails.high.url" alt="{{ item.snippet.title }}">
-  <mat-card-content [style]="'padding: 0'">
-    <div class="stats">
-      <span><mat-icon>visibility</mat-icon> {{ item.statistics.viewCount }}</span>
-      <span><mat-icon>favorite</mat-icon> {{ item.statistics.likeCount }}</span>
-      <span><mat-icon>thumb_down</mat-icon> {{ item.statistics.dislikeCount }}</span>
-      <span><mat-icon>comment</mat-icon> {{ item.statistics.commentCount }}</span>
-    </div>
-    <h3 matTooltip="{{item.snippet.title}}">{{ item.snippet.title }}</h3>
-  </mat-card-content>
-  <mat-card-actions class="actions">
-    <app-custom-button 
-      [matFab]="true" 
-      class="button"
-      fontIcon="more_vert" 
-    > 
-    more ...
-    </app-custom-button>
-  </mat-card-actions>
-</mat-card>
+  <mat-card appItemBorderColor="{{item.snippet.publishedAt}}" class="card" >
+    <img mat-card-image [src]="item.snippet.thumbnails.high.url" alt="{{ item.snippet.title }}">
+    <mat-card-content [style]="'padding: 0'">
+      <div class="stats">
+        <span><mat-icon>visibility</mat-icon> {{ item.statistics.viewCount }}</span>
+        <span><mat-icon>favorite</mat-icon> {{ item.statistics.likeCount }}</span>
+        <span><mat-icon>thumb_down</mat-icon> {{ item.statistics.dislikeCount }}</span>
+        <span><mat-icon>comment</mat-icon> {{ item.statistics.commentCount }}</span>
+      </div>
+      <h3 matTooltip="{{item.snippet.title}}">{{ item.snippet.title }}</h3>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <app-custom-button 
+        [matFab]="true" 
+        class="button"
+        fontIcon="more_vert" 
+      > 
+      more ...
+      </app-custom-button>
+    </mat-card-actions>
+  </mat-card>
