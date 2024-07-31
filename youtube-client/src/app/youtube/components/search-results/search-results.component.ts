@@ -1,6 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import SearchBarService from '../../services/search-bar.service';
+import SearchBarService from '../../../core/services/search-bar.service';
 import SearchItemComponent from '../search-item/search-item.component';
 import SortPipe from '../../pipes/sort-pipe.pipe';
 

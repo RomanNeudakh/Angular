@@ -5,7 +5,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { NgClass, NgIf } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
-import SearchBarService from '../../../services/search-bar.service';
+import SearchBarService from '../../services/search-bar.service';
 
 @Component({
   selector: 'app-settings-overlay',

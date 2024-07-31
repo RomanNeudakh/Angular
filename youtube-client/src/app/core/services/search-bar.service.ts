@@ -1,8 +1,8 @@
 import { effect, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import Item from '../search/search-item.model';
-import { SearchResponse } from '../search/search-response.model';
+import Item from '../../youtube/models/search-item.model';
+import { SearchResponse } from '../../youtube/models/search-response.model';
 
 @Injectable({
   providedIn: 'root',

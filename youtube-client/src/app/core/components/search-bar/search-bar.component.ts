@@ -3,9 +3,9 @@ import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import SearchBarService from '../../../services/search-bar.service';
+import SearchBarService from '../../services/search-bar.service';
 import SearchOverlayComponent from '../search-overlay/search-overlay.component';
-import CustomButtonComponent from '../../../core/components/custom-button/custom-button.component';
+import CustomButtonComponent from '../custom-button/custom-button.component';
 
 @Component({
   selector: 'app-searchbar',

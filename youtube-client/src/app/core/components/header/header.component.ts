@@ -7,11 +7,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
-import SearchItemComponent from '../../search/search-item/search-item.component';
-import SearchbarComponent from '../components/search-bar/search-bar.component';
-import SettingsOverlayComponent from '../components/settings-overlay/settings-overlay.component';
+import SearchItemComponent from '../../../youtube/components/search-item/search-item.component';
+import SearchbarComponent from '../search-bar/search-bar.component';
+import SettingsOverlayComponent from '../settings-overlay/settings-overlay.component';
 import SearchBarService from '../../services/search-bar.service';
-import CustomButtonComponent from '../../core/components/custom-button/custom-button.component';
+import CustomButtonComponent from '../custom-button/custom-button.component';
 
 @Component({
   selector: 'app-header',

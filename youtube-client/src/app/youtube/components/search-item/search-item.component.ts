@@ -3,8 +3,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import Item from '../search-item.model';
-import CustomButtonComponent from '../../core/components/custom-button/custom-button.component';
+import Item from '../../models/search-item.model';
+import CustomButtonComponent from '../../../core/components/custom-button/custom-button.component';
 import ColoredBorderDirective from '../../directives/colored-border.directive';
 
 @Component({

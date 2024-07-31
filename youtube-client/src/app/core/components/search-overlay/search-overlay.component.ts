@@ -3,8 +3,8 @@ import { MatDivider } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
-import SearchBarService from '../../../services/search-bar.service';
-import CustomButtonComponent from '../../../core/components/custom-button/custom-button.component';
+import SearchBarService from '../../services/search-bar.service';
+import CustomButtonComponent from '../custom-button/custom-button.component';
 
 @Component({
   selector: 'app-search-overlay',
