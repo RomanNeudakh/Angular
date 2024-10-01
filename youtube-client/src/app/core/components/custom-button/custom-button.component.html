@@ -1,0 +1,14 @@
+<button 
+    class="custom-button"
+    [ngClass]="{
+        'custom-button': !matFab,
+        'mat-list-item-meta': matListItemMeta, 
+        'mat-fab': matFab, 
+        'mat-icon-button': matIconButton
+    }" 
+    [attr.type]="type" 
+    (click)="handleClick($event)"
+>
+    <mat-icon>{{fontIcon}}</mat-icon>
+    <ng-content></ng-content>
+</button>

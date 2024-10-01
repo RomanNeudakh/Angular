@@ -1,0 +1,31 @@
+<mat-toolbar 
+  color="primary"
+  cdkOverlayOrigin 
+  #overlayPosition="cdkOverlayOrigin"
+>
+  <div class="left-section">
+    <app-custom-button [matIconButton]="true" fontIcon="play_circle" >
+    </app-custom-button>
+    <app-searchbar></app-searchbar>  
+  </div>
+  <app-custom-button 
+    [matIconButton]="true" 
+    fontIcon="tune" 
+    (buttonClick)="settingsOverlayOpen.set(true)"
+  >
+  </app-custom-button>
+  <div class="right-section">
+    <span>Your Name</span>
+    <app-custom-button fontIcon="account_circle"></app-custom-button>
+  </div>
+</mat-toolbar>
+<ng-template 
+  cdkConnectedOverlay 
+  [cdkConnectedOverlayOrigin]="overlayPosition" 
+  [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'" 
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayOpen]="settingsOverlayOpen()"
+  (backdropClick)="settingsOverlayOpen.set(false)"
+>
+<app-settings-overlay></app-settings-overlay>
+</ng-template>

@@ -1,0 +1,10 @@
+html, body { height: 100%; overflow: hidden;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+    --primary-color: #9f9cde;
+    --accent-color:  #bebddb;
+}
+.mat-typography h3 {
+    font-size: 1.2rem;
+    margin: 0;
+}
